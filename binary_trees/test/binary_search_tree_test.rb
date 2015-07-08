@@ -13,7 +13,6 @@ describe Node do
   end
 
   it "has a left node" do
-    skip
     assert_equal 1, Node.new(0, Node.new(1)).left.data
   end
 
@@ -29,12 +28,10 @@ describe BinarySearchTree do
   end
   describe "#root_node" do
     it "is nil for an empty list" do
-      skip
       assert_nil BinarySearchTree.new.root_node
     end
 
     it "adds a new root node when pushed" do
-      skip
       @tree.push(1)
       assert_equal 1, @tree.root_node.data
     end
@@ -45,7 +42,6 @@ describe BinarySearchTree do
     # provide a nicer interface, we will accept raw numbers as inputs to
     # push, and handle wrapping the data in a Node internally
     it "adds data smaller than the root node to the left of the root" do
-      skip
       @tree.push(5) #root
       @tree.push(4)
       assert_equal 4, @tree.root_node.left.data

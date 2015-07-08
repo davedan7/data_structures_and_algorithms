@@ -1,21 +1,33 @@
 gem 'minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
-require './lib/iterative_linked_list'
+require_relative 'iterative_linked_list' 
 
 class IterativeLinkedListTest < Minitest::Test
   attr_reader :list
 
   def setup
-    @list = IterativeLinkedList.new
+    @list = LinkedList.new
   end
 
   def test_it_starts_with_zero_elements
     assert_equal 0, list.count
   end
 
+	def test_nodes_have_data
+		node = Node.new("pizza")
+		assert_equal "pizza", node.data 
+	end
+
+	def test_nodes_have_next_node
+		n1 = Node.new("pizza")
+		n2 = Node.new("cats")
+		n1.next_node = n2
+		assert_equal "cats", n1.next_node.data
+		assert_equal Node, n1.next_node.class
+	end
+
   def test_it_pushes_three_elements_onto_a_list
-    skip
     list.push("hello")
     list.push("world")
     list.push("today")
@@ -181,6 +193,7 @@ class IterativeLinkedListTest < Minitest::Test
   end
 
   def test_distance_returns_distance_between_two_nodes
+		skip
     list.push("hello")
     list.push("pizza")
     list.push("world")
